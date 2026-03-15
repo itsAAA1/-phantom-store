@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHANTOM Store | متجر المكملات والإلكترونيات والموضة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111;
+      --card: #1a1a1a;
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --white: #f5f5f5;
+      --gray: #888;
+      --success: #4caf50;
+      --danger: #e74c3c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(90deg, #c9a84c, #8b6914, #c9a84c);
+      color: #000;
+      text-align: center;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .top-banner span {
+      background: #000;
+      color: #c9a84c;
+      padding: 3px 12px;
+      border-radius: 4px;
+      margin: 0 5px;
+      font-weight: 900;
+      display: inline-block;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1200 50%, #0a0a0a 100%);
+      border-bottom: 3px solid var(--gold);
+      padding: 25px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 8px;
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.6), 0 0 60px rgba(201, 168, 76, 0.3);
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .tagline {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 25px 20px;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      border-bottom: 1px solid #222;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      background: rgba(201, 168, 76, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      transition: all 0.3s;
+    }
+
+    .stat:hover {
+      background: rgba(201, 168, 76, 0.1);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Codes Bar */
+    .codes-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 20px;
+      background: #111;
+      border-bottom: 1px solid #222;
+    }
+
+    .code-pill {
+      background: linear-gradient(135deg, var(--card) 0%, #222 100%);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .code-pill:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+
+    .code-pill .platform {
+      color: var(--gray);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .code-pill .code {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 1rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      padding: 20px;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    }
+
+    .search-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      background: #1a1a1a;
+      border: 2px solid #333;
+      border-radius: 30px;
+      padding: 14px 20px;
+      color: #fff;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+    }
+
+    .search-bar input::placeholder {
+      color: #555;
+    }
+
+    /* Categories */
+    .categories {
+      display: flex;
+      gap: 10px;
+      padding: 20px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      border-bottom: 1px solid #222;
+      background: #111;
+    }
+
+    .categories::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .categories::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+
+    .categories::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 3px;
+    }
+
+    .cat-btn {
+      background: var(--card);
+      border: 2px solid #333;
+      color: var(--gray);
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: all 0.3s;
+      font-weight: 600;
+    }
+
+    .cat-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .cat-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #000;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+
+    /* Section Header */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 30px 20px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: linear-gradient(135deg, var(--card) 0%, #222 100%);
+      border: 1px solid #333;
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(201, 168, 76, 0.2);
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.65rem;
+      font-weight: 900;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .badge-iherb {
+      background: rgba(201, 168, 76, 0.95);
+      color: #000;
+    }
+
+    .badge-amazon {
+      background: rgba(255, 153, 0, 0.95);
+      color: #000;
+    }
+
+    .badge-ali {
+      background: rgba(231, 76, 60, 0.95);
+      color: #fff;
+    }
+
+    .badge-ebay {
+      background: rgba(230, 126, 34, 0.95);
+      color: #fff;
+    }
+
+    .product-img-wrap {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, #222 0%, #1a1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translate(-100%, -100%);
+      }
+      100% {
+        transform: translate(100%, 100%);
+      }
+    }
+
+    .product-info {
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .product-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      min-height: 2.4em;
+    }
+
+    .product-rating {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .product-price {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+
+    .product-commission {
+      font-size: 0.7rem;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .buy-btn {
+      margin-top: auto;
+      width: 100%;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-iherb {
+      background: linear-gradient(135deg, #c9a84c, #8b6914);
+      color: #000;
+    }
+
+    .btn-amazon {
+      background: linear-gradient(135deg, #ff9900, #e47911);
+      color: #000;
+    }
+
+    .btn-ali {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: #fff;
+    }
+
+    .btn-ebay {
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: #fff;
+    }
+
+    .buy-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+      border-top: 2px solid var(--gold);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    footer .brand {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+
+    footer p {
+      color: var(--gray);
+      font-size: 0.8rem;
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    footer .social {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    footer .social a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 1.2rem;
+    }
+
+    footer .social a:hover {
+      transform: scale(1.2);
+      text-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 15px;
+      }
+
+      .section-header {
+        padding: 20px 15px 15px;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-banner">🎁 كود iHerb: <span>HLA5195</span> | أمازون: <span>itsaaa-21</span> | علي: <span>عمولة 9%</span></div>
+  
+  <header>
+    <div class="logo">PHANTOM <span>STORE</span></div>
+    <div class="tagline">🏆 HEALTH • TECH • BEAUTY • FASHION</div>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">منتج</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">منصات</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5-10%</div>
+      <div class="stat-label">خصم iHerb</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">9%</div>
+      <div class="stat-label">عمولة AliExpress</div>
+    </div>
+  </div>
+
+  <div class="codes-bar">
+    <div class="code-pill">
+      <div class="platform">iHerb</div>
+      <div class="code">HLA5195</div>
+    </div>
+    <div class="code-pill">
+      <div class="platform">Amazon</div>
+      <div class="code">itsaaa-21</div>
+    </div>
+    <div class="code-pill">
+      <div class="platform">AliExpress</div>
+      <div class="code">عمولة تلقائية</div>
+    </div>
+    <div class="code-pill">
+      <div class="platform">eBay</div>
+      <div class="code">7034091</div>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="🔍 ابحث عن منتج..." oninput="searchProducts()">
+    </div>
+  </div>
+
+  <div class="categories">
+    <button class="cat-btn active" onclick="filterCat('all', this)">🌟 الكل</button>
+    <button class="cat-btn" onclick="filterCat('supplements', this)">💊 مكملات</button>
+    <button class="cat-btn" onclick="filterCat('vitamins', this)">☀️ فيتامينات</button>
+    <button class="cat-btn" onclick="filterCat('protein', this)">💪 بروتين</button>
+    <button class="cat-btn" onclick="filterCat('beauty', this)">✨ جمال</button>
+    <button class="cat-btn" onclick="filterCat('food', this)">🍯 أكل صحي</button>
+    <button class="cat-btn" onclick="filterCat('tech', this)">📱 تقنية</button>
+    <button class="cat-btn" onclick="filterCat('home', this)">🏠 منزل</button>
+    <button class="cat-btn" onclick="filterCat('sport', this)">🏋️ رياضة</button>
+    <button class="cat-btn" onclick="filterCat('fashion', this)">👗 موضة</button>
+  </div>
+
+  <div class="section-header">
+    <div class="section-title">⚡ جميع المنتجات</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+    <!-- المنتجات ستُضاف هنا -->
+  </div>
+
+  <footer>
+    <div class="brand">PHANTOM STORE</div>
+    <p>🏆 متجر عبداللطيف للمكملات والإلكترونيات والموضة والجمال</p>
+    <p>✓ جميع الروابط حقيقية وموثوقة | ✓ أفضل الأسعار | ✓ خدمة عملاء 24/7</p>
+    <div class="social">
+      <a href="https://linktr.ee/itsAAA" target="_blank">🔗 Linktree</a>
+      <a href="https://beacons.ai/itsaaa" target="_blank">📱 Beacons</a>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      // مكملات
+      { id: 1, name: 'Omega-3 Fish Oil Triple Strength', category: 'supplements', price: '78 ر.س', rating: '★★★★★ (12,400)', emoji: '🐟', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 2, name: 'ZMA Zinc & Magnesium', category: 'supplements', price: '202 ر.س', rating: '★★★★★ (3,978)', emoji: '💊', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 3, name: 'Ashwagandha KSM-66', category: 'supplements', price: '85 ر.س', rating: '★★★★★ (8,200)', emoji: '🌿', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 4, name: 'CoQ10 200mg', category: 'supplements', price: '95 ر.س', rating: '★★★★★ (5,600)', emoji: '⚡', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 5, name: 'MCT Oil للطاقة', category: 'supplements', price: '120 ر.س', rating: '★★★★☆ (7,100)', emoji: '🥥', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 6, name: 'Magnesium Glycinate', category: 'supplements', price: '75 ر.س', rating: '★★★★★ (9,300)', emoji: '🧠', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 7, name: 'Nordic Naturals Omega', category: 'supplements', price: '165 ر.س', rating: '★★★★★ (18,000)', emoji: '🐠', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 8, name: 'Probiotic 25 Billion', category: 'supplements', price: '90 ر.س', rating: '★★★★★ (6,800)', emoji: '🦠', platform: 'iherb', link: 'https://www.iherb.com' },
+      
+      // فيتامينات
+      { id: 9, name: 'Vitamin D3 5000 IU', category: 'vitamins', price: '65 ر.س', rating: '★★★★★ (15,000)', emoji: '☀️', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 10, name: 'Vitamin C 1000mg', category: 'vitamins', price: '55 ر.س', rating: '★★★★★ (12,500)', emoji: '🍊', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 11, name: 'Vitamin B Complex', category: 'vitamins', price: '70 ر.س', rating: '★★★★★ (9,800)', emoji: '💉', platform: 'iherb', link: 'https://www.iherb.com' },
+      { id: 12, name: 'Multivitamin Daily', category: 'vitamins', price: '85 ر.س', rating: '★★★★★ (11,200)', emoji: '🌈', platform: 'iherb', link: 'https://www.iherb.com' },
+      
+      // بروتين
+      { id: 13, name: 'Whey Protein Gold Standard', category: 'protein', price: '180 ر.س', rating: '★★★★★ (25,000)', emoji: '💪', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 14, name: 'Casein Protein Night', category: 'protein', price: '160 ر.س', rating: '★★★★★ (8,900)', emoji: '🥛', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 15, name: 'BCAA Amino Acids', category: 'protein', price: '95 ر.س', rating: '★★★★★ (7,600)', emoji: '⚡', platform: 'amazon', link: 'https://www.amazon.com' },
+      
+      // جمال
+      { id: 16, name: 'Retinol Anti-Aging Serum', category: 'beauty', price: '120 ر.س', rating: '★★★★★ (14,300)', emoji: '✨', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 17, name: 'Hyaluronic Acid Moisturizer', category: 'beauty', price: '95 ر.س', rating: '★★★★★ (12,100)', emoji: '💧', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 18, name: 'Vitamin C Face Cream', category: 'beauty', price: '110 ر.س', rating: '★★★★★ (10,500)', emoji: '🧴', platform: 'amazon', link: 'https://www.amazon.com' },
+      
+      // أكل صحي
+      { id: 19, name: 'Organic Honey Raw', category: 'food', price: '45 ر.س', rating: '★★★★★ (8,700)', emoji: '🍯', platform: 'ali', link: 'https://www.aliexpress.com' },
+      { id: 20, name: 'Almond Butter Natural', category: 'food', price: '55 ر.س', rating: '★★★★★ (6,400)', emoji: '🥜', platform: 'ali', link: 'https://www.aliexpress.com' },
+      { id: 21, name: 'Coconut Oil Organic', category: 'food', price: '65 ر.س', rating: '★★★★★ (9,200)', emoji: '🥥', platform: 'ali', link: 'https://www.aliexpress.com' },
+      
+      // تقنية
+      { id: 22, name: 'Apple Watch Series 8', category: 'tech', price: '1,200 ر.س', rating: '★★★★★ (15,000)', emoji: '⌚', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 23, name: 'AirPods Pro 2', category: 'tech', price: '850 ر.س', rating: '★★★★★ (18,500)', emoji: '🎧', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 24, name: 'Smart Ring Oura', category: 'tech', price: '950 ر.س', rating: '★★★★★ (12,300)', emoji: '💍', platform: 'amazon', link: 'https://www.amazon.com' },
+      
+      // منزل
+      { id: 25, name: 'Air Purifier Smart', category: 'home', price: '450 ر.س', rating: '★★★★★ (11,200)', emoji: '💨', platform: 'ali', link: 'https://www.aliexpress.com' },
+      { id: 26, name: 'Smart Light Bulbs', category: 'home', price: '120 ر.س', rating: '★★★★★ (9,800)', emoji: '💡', platform: 'ali', link: 'https://www.aliexpress.com' },
+      
+      // رياضة
+      { id: 27, name: 'Yoga Mat Premium', category: 'sport', price: '85 ر.س', rating: '★★★★★ (7,600)', emoji: '🧘', platform: 'ali', link: 'https://www.aliexpress.com' },
+      { id: 28, name: 'Dumbbells Set', category: 'sport', price: '250 ر.س', rating: '★★★★★ (10,200)', emoji: '🏋️', platform: 'ali', link: 'https://www.aliexpress.com' },
+      
+      // موضة
+      { id: 29, name: 'Premium Sneakers', category: 'fashion', price: '350 ر.س', rating: '★★★★★ (13,400)', emoji: '👟', platform: 'amazon', link: 'https://www.amazon.com' },
+      { id: 30, name: 'Designer Sunglasses', category: 'fashion', price: '280 ر.س', rating: '★★★★★ (11,100)', emoji: '😎', platform: 'amazon', link: 'https://www.amazon.com' },
+    ];
+
+    function renderProducts(productsToShow = products) {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+
+      productsToShow.forEach(product => {
+        const badgeClass = `badge-${product.platform}`;
+        const btnClass = `btn-${product.platform}`;
+        
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-cat', product.category);
+        card.setAttribute('data-name', product.name.toLowerCase());
+        
+        card.innerHTML = `
+          <span class="badge ${badgeClass}">${product.platform.toUpperCase()}</span>
+          <div class="product-img-wrap">${product.emoji}</div>
+          <div class="product-info">
+            <div class="product-name">${product.name}</div>
+            <div class="product-rating">${product.rating}</div>
+            <div class="product-price">${product.price}</div>
+            <button class="buy-btn ${btnClass}" onclick="window.open('${product.link}', '_blank')">🛒 اشتري</button>
+          </div>
+        `;
+        
+        grid.appendChild(card);
+      });
+    }
+
+    function searchProducts() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(p => p.name.toLowerCase().includes(searchTerm));
+      renderProducts(filtered);
+    }
+
+    function filterCat(category, button) {
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      if (category === 'all') {
+        renderProducts(products);
+      } else {
+        const filtered = products.filter(p => p.category === category);
+        renderProducts(filtered);
+      }
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
